@@ -1,0 +1,15 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        ["@babel/preset-env", { "targets": { "node": "true" } }],
+        ["@vue/babel-preset-jsx"]
+      ],
+      "plugins": [
+        "@babel/plugin-transform-object-assign",
+        "@babel/plugin-transform-object-rest-spread",
+        "@babel/plugin-transform-runtime"
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+import animation from '../_util/openAnimation';
+import {
+  getOptionProps,
+  initDefaultProps,
+  getComponentFromProp,
+  isValidElement,
+  getListeners,
+} from '../_util/props-util';
+import { cloneElement } from '../_util/vnode';
+import VcCollapse, { collapseProps } from '../vc-collapse';
+import Icon from '../icon';
+import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
+
+export default {
+  name: 'ACollapse',
+  model: {
+    prop: 'activeKey',
+    event: 'change',
+  },
+  props: initDefaultProps(collapseProps(), {
+    bordered: true,
+    openAnimation: animation,
+    expandIconPosition: 'left',
+  }),
+  inject: {
+    configProvider: { default: () => ConfigConsumerProps },
+  },
+  methods: {
+    renderExpandIcon(panelProps, prefixCls) {
+      const expandIcon = getComponentFromProp(this, 'expandIcon', panelProps);
+      const icon = expandIcon || (
+        <Icon type="right" rotate={panelProps.isActive ? 90 : undefined} />
+      );
+      return isValidElement(Array.isArray(expandIcon) ? icon[0] : icon)
+        ? cloneElement(icon, {
+            class: `${prefixCls}-arrow`,
+          })
+        : icon;
+    },
+  },
+  render() {
+    const { prefixCls: customizePrefixCls, bordered, expandIconPosition } = this;
+    const getPrefixCls = this.configProvider.getPrefixCls;
+    const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+
+    const collapseClassName = {
+      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-icon-position-${expandIconPosition}`]: true,
+    };
+    const rcCollapeProps = {
+      props: {
+        ...getOptionProps(this),
+        prefixCls,
+        expandIcon: panelProps => this.renderExpandIcon(panelProps, prefixCls),
+      },
+      class: collapseClassName,
+      on: getListeners(this),
+    };
+    return <VcCollapse {...rcCollapeProps}>{this.$slots.default}</VcCollapse>;
+  },
+};
