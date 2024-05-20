@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-  <a href="https://www.antdv.com/" target="_blank">Ant Design Vue</a>
+  <a href="https://www.antdv.com/" target="_blank">Venus Design UI</a>
 </h1>
 
 <div align="center">
@@ -19,21 +19,6 @@ An enterprise-class UI components based on Ant Design and Vue.
 [![](https://cdn-images-1.medium.com/max/2000/1*NIlj0-TdLMbo_hzSBP8tmg.png)](https://www.antdv.com/)
 
 English | [简体中文](./README-zh_CN.md)
-
-<p align="center">
-  <b>Special thanks to the generous sponsorship by:</b>
-</p>
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="middle">
-        <a href="https://tipe.io/?ref=ant-design-vue" target="_blank">
-          <img width="120px" src="https://user-images.githubusercontent.com/1016365/34124854-48fafa06-e3e9-11e7-8c04-251055feebee.png">
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 ## Features
 

@@ -39,8 +39,7 @@
     "lint": "eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components",
     "lint:site": "eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./antdv-demo",
     "lint:docs": "eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue,.md ./antdv-demo/docs/**/demo/**",
-    "lint:style": "stylelint \"{site,components}/**/*.less\" --syntax less",
-    "codecov": "codecov"
+    "lint:style": "stylelint \"{site,components}/**/*.less\" --syntax less"
   },
   "repository": {
     "type": "git",
@@ -84,7 +83,6 @@
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "chalk": "^3.0.0",
     "cheerio": "^1.0.0-rc.2",
-    "codecov": "^3.0.0",
     "colorful": "^2.1.0",
     "commander": "^4.0.0",
     "compare-versions": "^3.3.0",

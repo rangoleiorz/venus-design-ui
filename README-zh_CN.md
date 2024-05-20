@@ -20,21 +20,6 @@ An enterprise-class UI components based on Ant Design and Vue.
 
 [English](./README.md) | 简体中文
 
-<p align="center">
-  <b>Special thanks to the generous sponsorship by:</b>
-</p>
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="middle">
-        <a href="https://tipe.io/?ref=ant-design-vue" target="_blank">
-          <img width="120px" src="https://user-images.githubusercontent.com/1016365/34124854-48fafa06-e3e9-11e7-8c04-251055feebee.png">
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
 ## 特性
 
 - 提炼自企业级中后台产品的交互语言和视觉风格。
