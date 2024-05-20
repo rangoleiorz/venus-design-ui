@@ -41,11 +41,11 @@ An enterprise-class UI components based on Ant Design and Vue.
 ### 使用 npm 或 yarn 安装
 
 ```bash
-$ npm install ant-design-vue --save
+$ npm install venus-design-ui --save
 ```
 
 ```bash
-$ yarn add ant-design-vue
+$ yarn add venus-design-ui
 ```
 
 如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。

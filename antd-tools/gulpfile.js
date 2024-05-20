@@ -3,6 +3,7 @@
 'use strict';
 
 // const install = require('./install')
+const dotenvConfigOutput = require('dotenv').config();
 const runCmd = require('./runCmd');
 const getBabelCommonConfig = require('./getBabelCommonConfig');
 const merge2 = require('merge2');
@@ -81,8 +82,8 @@ function babelify(js, modules) {
   let stream = js.pipe(babel(babelConfig)).pipe(
     through2.obj(function z(file, encoding, next) {
       this.push(file.clone());
-        const filePath = crossFilePath(file.path);
-        if (filePath.match(/\/style\/index\.(js|jsx)$/)) {
+      const filePath = crossFilePath(file.path);
+      if (filePath.match(/\/style\/index\.(js|jsx)$/)) {
         const content = file.contents.toString(encoding);
         file.contents = Buffer.from(
           content.replace(/\/style\/?'/g, "/style/css'").replace(/\.less/g, '.css'),
@@ -150,10 +151,10 @@ function tag() {
   execSync(`git config --global user.name ${process.env.GITHUB_USER_NAME}`);
   execSync(`git tag ${version}`);
   execSync(
-    `git push https://${process.env.GITHUB_TOKEN}@github.com/vueComponent/ant-design-vue.git ${version}:${version}`,
+    `git push https://${process.env.GITHUB_TOKEN}@github.com/rangoleiorz/venus-design-ui.git ${version}:${version}`,
   );
   execSync(
-    `git push https://${process.env.GITHUB_TOKEN}@github.com/vueComponent/ant-design-vue.git master:master`,
+    `git push https://${process.env.GITHUB_TOKEN}@github.com/rangoleiorz/venus-design-ui main:main`,
   );
   console.log('tagged');
 }
