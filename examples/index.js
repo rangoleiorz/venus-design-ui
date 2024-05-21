@@ -1,8 +1,8 @@
 import 'babel-polyfill';
 import Vue from 'vue';
 import App from './App.vue';
-import Antd from 'ant-design-vue';
-import 'ant-design-vue/style.js';
+import Antd from 'venus-design-ui';
+import 'venus-design-ui/style.js';
 
 Vue.use(Antd);
 

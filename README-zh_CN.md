@@ -12,7 +12,7 @@
 
 An enterprise-class UI components based on Ant Design and Vue.
 
-![test](https://github.com/vueComponent/ant-design-vue/workflows/test/badge.svg) [![codecov](https://img.shields.io/codecov/c/github/vueComponent/ant-design-vue/master.svg?style=flat-square)](https://codecov.io/gh/vueComponent/ant-design-vue) [![npm package](https://img.shields.io/npm/v/ant-design-vue.svg?style=flat-square)](https://www.npmjs.org/package/ant-design-vue) [![NPM downloads](http://img.shields.io/npm/dm/ant-design-vue.svg?style=flat-square)](http://www.npmtrends.com/ant-design-vue) [![Join the chat at https://gitter.im/vueComponent/ant-design-english](https://badges.gitter.im/vueComponent/ant-design-english.svg?style=flat-square)](https://gitter.im/vueComponent/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) (English) [![Join the chat at https://gitter.im/vueComponent/ant-design-vue](https://img.shields.io/gitter/room/vueComponent/ant-design-vue.svg?style=flat-square)](https://gitter.im/vueComponent/ant-design-vue?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文） [![backers](https://opencollective.com/ant-design-vue/backers/badge.svg)](#backers) [![sponsors](https://opencollective.com/ant-design-vue/sponsors/badge.svg)](#sponsors) [![extension-for-VSCode](https://img.shields.io/badge/extension%20for-VSCode-blue.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=ant-design-vue.vscode-ant-design-vue-helper)
+[![npm package](https://img.shields.io/npm/v/ant-design-vue.svg?style=flat-square)](https://www.npmjs.org/package/venus-design-ui) [![NPM downloads](http://img.shields.io/npm/dm/ant-design-vue.svg?style=flat-square)](http://www.npmtrends.com/venus-design-ui) [![Join the chat at https://gitter.im/vueComponent/ant-design-english](https://badges.gitter.im/vueComponent/ant-design-english.svg?style=flat-square)](https://gitter.im/vueComponent/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) (English) [![Join the chat at https://gitter.im/vueComponent/ant-design-vue](https://img.shields.io/gitter/room/vueComponent/ant-design-vue.svg?style=flat-square)](https://gitter.im/vueComponent/ant-design-vue?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文）
 
 </div>
 
@@ -56,17 +56,6 @@ $ yarn add venus-design-ui
 - [Vue 官方文档](https://cn.vuejs.org/)
 - [Ant Design Of React](http://ant.design/)
 
-## 生态
-
-| Project | Description |
-| --- | --- |
-| [vue-ref](https://github.com/vueComponent/vue-ref) | 您可以使用回调来获取组件的引用，类似 react |
-| [ant-design-vue-helper](https://marketplace.visualstudio.com/items?itemName=ant-design-vue.vscode-ant-design-vue-helper) | ant-design-vue 的 vscode 扩展 |
-| [vue-cli-plugin-ant-design](https://github.com/vueComponent/vue-cli-plugin-ant-design) | 使用 vue-cli3 快速使用 ant-design-vue 组件库 |
-| [vue-dash-event](https://github.com/vueComponent/vue-dash-event) | 在 DOM 模板中，您可以使用 ant-design-vue 组件的自定义事件（camelCase） |
-
 ## 问答
 
 > 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
-
-[![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/104172832)

@@ -1,6 +1,6 @@
 {
   "name": "venus-design-ui",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "title": "Ant Design Vue",
   "description": "An enterprise-class UI design language and Vue-based implementation",
   "keywords": [
@@ -74,7 +74,6 @@
     "@vue/test-utils": "1.0.0-beta.16",
     "acorn": "^7.0.0",
     "autoprefixer": "^9.6.0",
-    "axios": "^0.19.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.0",
@@ -171,6 +170,7 @@
     "add-dom-event-listener": "^1.0.2",
     "array-tree-filter": "^2.1.0",
     "async-validator": "^3.0.3",
+    "axios": "0.21.4",
     "classnames": "^2.2.5",
     "component-classes": "^1.2.6",
     "dom-align": "^1.10.4",

@@ -138,6 +138,8 @@ import { default as Comment } from './comment';
 
 import { default as ConfigProvider } from './config-provider';
 
+import { configure, getConfig } from './configure';
+
 import { default as Empty } from './empty';
 
 import { default as Result } from './result';
@@ -298,6 +300,8 @@ export {
   Comment,
   // ColorPicker,
   ConfigProvider,
+  configure,
+  getConfig,
   Empty,
   Result,
   Descriptions,

@@ -25,18 +25,11 @@ module.exports = {
               '@babel/preset-env',
               {
                 targets: {
-                  browsers: [
-                    'last 2 versions',
-                    'Firefox ESR',
-                    '> 1%',
-                    'ie >= 11',
-                  ],
+                  browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11'],
                 },
               },
             ],
-            [
-              '@vue/babel-preset-jsx',
-            ],
+            ['@vue/babel-preset-jsx'],
           ],
           plugins: [
             '@babel/plugin-transform-object-assign',
@@ -79,7 +72,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'ant-design-vue': path.join(__dirname, './components'),
+      'venus-design-ui': path.join(__dirname, './components'),
       vue$: 'vue/dist/vue.esm.js',
     },
     extensions: ['.js', '.jsx', '.vue', '.md'],

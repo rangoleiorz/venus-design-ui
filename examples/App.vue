@@ -44,9 +44,7 @@
       <h1>啊哈哈哈</h1>
       <h1>啊哈哈哈</h1>
       <h1>啊哈哈哈</h1>
-      <template #footer>
-        <a-button>确认</a-button><a-button>取消</a-button>
-      </template>
+      <template #footer> <a-button>确认</a-button><a-button>取消</a-button> </template>
     </a-drawer>
 
     <a-button @click="visible = true">
@@ -88,7 +86,7 @@
   </div>
 </template>
 <script>
-import { Modal } from 'ant-design-vue';
+import { Modal } from 'venus-design-ui';
 
 const modalKey = Modal.getKey();
 // console.log('Modal', modalKey);
@@ -219,7 +217,7 @@ export default {
           //     return [okBtn, h('a-button', {props: { loading: false }}, '审批')];
           //   },
           // });
-          return new Promise((r) => {
+          return new Promise(r => {
             setTimeout(() => {
               // eslint-disable-next-line no-console
               // console.log('ok wait');
