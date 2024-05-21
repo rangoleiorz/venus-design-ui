@@ -1375,7 +1375,7 @@ const Select = {
         if (maxTagCount !== undefined && value.length > maxTagCount) {
           limitedCountValue = limitedCountValue.slice(0, maxTagCount);
           const omittedValues = this.getVLForOnChange(value.slice(maxTagCount, value.length));
-          let content = `+ ${value.length - maxTagCount} ...`;
+          let content = `+${value.length - maxTagCount}...`;
           if (maxTagPlaceholder) {
             content =
               typeof maxTagPlaceholder === 'function'

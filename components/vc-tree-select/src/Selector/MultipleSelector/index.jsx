@@ -114,7 +114,7 @@ const MultipleSelector = {
 
       // Rest node count
       if (maxTagCount >= 0 && maxTagCount < selectorValueList.length) {
-        let content = `+ ${selectorValueList.length - maxTagCount} ...`;
+        let content = `+${selectorValueList.length - maxTagCount}...`;
         const maxTagPlaceholder = getComponentFromProp(this, 'maxTagPlaceholder', {}, false);
         if (typeof maxTagPlaceholder === 'string') {
           content = maxTagPlaceholder;

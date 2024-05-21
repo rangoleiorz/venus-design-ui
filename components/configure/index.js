@@ -17,8 +17,6 @@ function configure(config, mergeProps) {
 
 function getConfig(configKey) {
   const globalConfigState = globalConfig.getState();
-  // eslint-disable-next-line no-console
-  console.log('globalConfigState', globalConfigState);
   return configKey ? globalConfigState[configKey] : globalConfigState;
 }
 

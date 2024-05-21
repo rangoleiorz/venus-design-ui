@@ -337,16 +337,15 @@
       float: left;
       max-width: 99%;
       margin-right: 4px;
-      padding: 0 20px 0 10px;
+      padding: 0 16px 0 4px;
       overflow: hidden;
-      color: @tag-default-color;
-      background-color: @tag-default-bg;
-      border: 1px solid @border-color-split;
+      color: @tag-selected-color;
+      background-color: @tag-selected-bg;
       border-radius: @border-radius-sm;
       cursor: default;
       transition: padding 0.3s @ease-in-out;
       &__disabled {
-        padding: 0 10px;
+        padding: 0 4px;
       }
     }
 
@@ -363,9 +362,9 @@
       .iconfont-mixin();
 
       position: absolute;
-      right: 4px;
+      right: 2px;
       display: inline-block;
-      color: @text-color-secondary;
+      color: @tag-selected-color;
       font-weight: bold;
       font-size: @font-size-sm;
       line-height: inherit;
@@ -373,7 +372,7 @@
       transition: all 0.3s;
       .iconfont-size-under-12px(10px);
       &:hover {
-        color: @icon-color-hover;
+        color: @primary-8;
       }
     }
 

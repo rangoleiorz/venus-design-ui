@@ -21,6 +21,27 @@
         </a-button>
       </a-form-model-item>
     </a-form-model>
+
+    <a-select :max-tag-count="2" style="width: 160px" mode="multiple">
+      <a-select-option :key="1">
+        11111
+      </a-select-option>
+      <a-select-option :key="2">
+        2222
+      </a-select-option>
+      <a-select-option :key="3">
+        33333
+      </a-select-option>
+      <a-select-option :key="4">
+        4444
+      </a-select-option>
+      <a-select-option :key="5">
+        5555
+      </a-select-option>
+      <a-select-option :key="6">
+        6666
+      </a-select-option>
+    </a-select>
     <a-drawer :visible="visible">
       <template #title>
         我在测试1111

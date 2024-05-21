@@ -76,8 +76,25 @@ const ModalBox = defineComponent({
       }
     },
     handleCancel(e) {
-      if (isFunction(this.onCancel)) {
-        this.onCancel(e);
+      const self = this;
+      let ret;
+      if (isFunction(self.onCancel)) {
+        ret = self.onCancel(e);
+      }
+      if (ret && ret.then) {
+        ret
+          .then(res => {
+            if (res === false) {
+              return res;
+            } else {
+              self.handleClose();
+            }
+          })
+          .catch(e => {
+            console.error(e);
+          });
+      } else {
+        self.handleClose();
       }
     },
     renderOkBtn(locale) {
@@ -167,7 +184,7 @@ const ModalBox = defineComponent({
               drawerStyle: dialogStyle,
             },
             on: {
-              close: (e) => {
+              close: e => {
                 if (isNull(footer) && mergeProps.maskClosable) {
                   handleClose(e);
                 } else {
@@ -187,7 +204,7 @@ const ModalBox = defineComponent({
               dialogStyle,
             },
             on: {
-              cancel: (e) => {
+              cancel: e => {
                 if (isNull(footer) && mergeProps.maskClosable) {
                   handleClose(e);
                 } else {
