@@ -1,6 +1,7 @@
 import { getComponentFromProp, initDefaultProps } from '../_util/props-util';
 import KeyCode from '../_util/KeyCode';
 import contains from '../vc-util/Dom/contains';
+import addEventListener from '../vc-util/Dom/addEventListener';
 import LazyRenderBox from './LazyRenderBox';
 import BaseMixin from '../_util/BaseMixin';
 import getTransitionProps from '../_util/getTransitionProps';
@@ -22,6 +23,15 @@ function getScroll(w, top) {
     }
   }
   return ret;
+}
+
+
+function getStyle(dom, attr) {
+  if (window.document.currentStyle) {
+    return dom.currentStyle[attr];
+  } else {
+    return getComputedStyle(dom, false)[attr];
+  }
 }
 
 function setTransformOrigin(node, value) {
@@ -55,6 +65,7 @@ export default {
     keyboard: true,
     closable: true,
     maskClosable: true,
+    draggable: false,
     destroyOnClose: false,
     prefixCls: 'rc-dialog',
     getOpenCount: () => null,
@@ -168,6 +179,79 @@ export default {
       this.dialogMouseDown = true;
     },
 
+    onHeaderMouseDown(e) {
+      const { draggable } = this;
+      if (!draggable) {
+        if (this.mousemoveEvent) {
+          this.mousemoveEvent.remove();
+        }
+        if (this.mouseupEvent) {
+          this.mouseupEvent.remove();
+        }
+        return;
+      }
+      // 鼠标按下，计算当前元素距离可视区的距离
+      const disX = e.clientX;
+      const disY = e.clientY;
+      const screenWidth = document.body.clientWidth; // body当前宽度
+      const screenHeight = document.documentElement.clientHeight; // 可见区域高度(应为body高度，可某些环境下无法获取)
+      const dragDom = this.$refs.dialog.$el;
+      const dragDomWidth = dragDom.offsetWidth; // 对话框宽度
+      const dragDomheight = dragDom.offsetHeight; // 对话框高度
+
+      const minDragDomLeft = dragDom.offsetLeft;
+
+      const maxDragDomLeft = screenWidth - dragDom.offsetLeft - dragDomWidth;
+      const minDragDomTop = dragDom.offsetTop;
+      const maxDragDomTop = screenHeight - dragDom.offsetTop - dragDomheight;
+
+      // 获取到的值带px 正则匹配替换
+      const domLeft = getStyle(dragDom, 'left');
+      const domTop = getStyle(dragDom, 'top');
+      let styL = domLeft;
+      let styT = domTop;
+
+      // 注意在ie中 第一次获取到的值为组件自带50% 移动之后赋值为px
+      if (domLeft.includes('%')) {
+        styL = +document.body.clientWidth * (+domLeft.replace(/%/g, '') / 100);
+        styT = +document.body.clientHeight * (+domTop.replace(/%/g, '') / 100);
+      } else {
+        styL = +domLeft.replace(/px/g, '');
+        styT = +domTop.replace(/px/g, '');
+      }
+
+      this.mousemoveEvent = addEventListener(document, 'mousemove', (e) => {
+        // 通过事件委托，计算移动的距离
+        let left = e.clientX - disX;
+        let top = e.clientY - disY;
+
+        // 边界处理
+        if (-left > minDragDomLeft) {
+          left = -minDragDomLeft;
+        } else if (left > maxDragDomLeft) {
+          left = maxDragDomLeft;
+        }
+
+        if (-top > minDragDomTop) {
+          top = -minDragDomTop;
+        } else if (top > maxDragDomTop) {
+          top = maxDragDomTop;
+        }
+
+        // 移动当前元素
+        dragDom.style.cssText += `;left:${left + styL}px;top:${top + styT}px;`;
+      });
+
+      this.mouseupEvent = addEventListener(document, 'mouseup', () => {
+        if (this.mousemoveEvent) {
+          this.mousemoveEvent.remove();
+        }
+        if (this.mouseupEvent) {
+          this.mouseupEvent.remove();
+        }
+      });
+    },
+
     onMaskMouseUp() {
       if (this.dialogMouseDown) {
         this.timeoutId = setTimeout(() => {
@@ -220,6 +304,7 @@ export default {
         forceRender,
         dialogStyle,
         dialogClass,
+        draggable,
       } = this;
       const dest = { ...dialogStyle };
       if (width !== undefined) {
@@ -241,7 +326,10 @@ export default {
       let header;
       if (title) {
         header = (
-          <div key="header" class={`${prefixCls}-header`} ref="header">
+          <div key="header" class={{
+            [`${prefixCls}-header`]: true,
+            [`${prefixCls}-draggable-handler`]: !!draggable,
+          }} ref="header" onMousedown={this.onHeaderMouseDown}>
             <div class={`${prefixCls}-title`} id={this.titleId}>
               {title}
             </div>
@@ -269,6 +357,7 @@ export default {
       const sentinelStyle = { width: 0, height: 0, overflow: 'hidden' };
       const cls = {
         [prefixCls]: true,
+        [`${prefixCls}-draggable`]: !!draggable && header,
       };
       const transitionName = this.getTransitionName();
       const dialogElement = (
@@ -282,7 +371,7 @@ export default {
           forceRender={forceRender}
           onMousedown={this.onDialogMouseDown}
         >
-          <div tabIndex={0} ref="sentinelStart" style={sentinelStyle} aria-hidden="true" />
+          <div tabIndex={0} ref="sentinelStart" style={sentinelStyle} />
           <div class={`${prefixCls}-content`}>
             {closer}
             {header}
@@ -291,7 +380,7 @@ export default {
             </div>
             {footer}
           </div>
-          <div tabIndex={0} ref="sentinelEnd" style={sentinelStyle} aria-hidden="true" />
+          <div tabIndex={0} ref="sentinelEnd" style={sentinelStyle} />
         </LazyRenderBox>
       );
       const dialogTransitionProps = getTransitionProps(transitionName, {

@@ -74,6 +74,7 @@ const modalProps = (defaultProps = {}) => {
     okButtonProps: PropTypes.object,
     cancelButtonProps: PropTypes.object,
     destroyOnClose: PropTypes.bool,
+    draggable: PropTypes.bool.def(false),
     wrapClassName: PropTypes.string,
     maskTransitionName: PropTypes.string,
     transitionName: PropTypes.string,
@@ -165,6 +166,7 @@ export default {
   render() {
     const {
       prefixCls: customizePrefixCls,
+      draggable: customizeDraggable,
       sVisible: visible,
       wrapClassName,
       centered,
@@ -173,9 +175,14 @@ export default {
       $scopedSlots,
       $attrs,
     } = this;
+
     const children = $scopedSlots.default ? $scopedSlots.default() : $slots.default;
-    const { getPrefixCls, getPopupContainer: getContextPopupContainer } = this.configProvider;
+    const { getPrefixCls, getPopupContainer: getContextPopupContainer, modal: modalConfig } = this.configProvider;
     const prefixCls = getPrefixCls('modal', customizePrefixCls);
+    let draggable = !!customizeDraggable;
+    if (modalConfig && 'draggable' in modalConfig) {
+      draggable = !!modalConfig.draggable;
+    }
 
     const defaultFooter = (
       <LocaleReceiver
@@ -203,6 +210,7 @@ export default {
         visible,
         mousePosition,
         closeIcon: closeIconToRender,
+        draggable,
       },
       on: {
         ...getListeners(this),

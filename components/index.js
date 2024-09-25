@@ -96,6 +96,8 @@ import { default as Rate } from './rate';
 
 import { default as Row } from './row';
 
+import { default as Scrollbar } from './scrollbar';
+
 import { default as Select } from './select';
 
 import { default as Slider } from './slider';
@@ -188,6 +190,7 @@ const components = [
   Radio,
   Rate,
   Row,
+  Scrollbar,
   Select,
   Slider,
   Spin,
@@ -279,6 +282,7 @@ export {
   Radio,
   Rate,
   Row,
+  Scrollbar,
   Select,
   Slider,
   Spin,

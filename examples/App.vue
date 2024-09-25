@@ -67,6 +67,32 @@
       <h1>啊哈哈哈</h1>
       <template #footer> <a-button>确认</a-button><a-button>取消</a-button> </template>
     </a-drawer>
+    <a-scrollbar style="height: 200px;width: 100px; border: 1px solid red;">
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+      <h1>啊哈哈哈</h1>
+    </a-scrollbar>
 
     <a-button @click="visible = true">
       open dialog
@@ -218,7 +244,7 @@ export default {
       //   }
       // });
 
-      const modal = Modal.open({
+      Modal.open({
         key: modalKey,
         drawer: false,
         // closable: true,

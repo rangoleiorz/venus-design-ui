@@ -85,7 +85,14 @@
     background: @modal-header-bg;
     // border-bottom: @border-width-base @border-style-base @modal-header-border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
+
+    &.@{dialog-prefix-cls}-draggable-handler {
+      cursor: move;
+      user-select: none;
+    }
   }
+
+
 
   &-body {
     padding: @modal-body-padding;

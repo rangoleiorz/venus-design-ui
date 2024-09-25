@@ -26,6 +26,7 @@ const ConfigProvider = {
     autoInsertSpaceInButton: PropTypes.bool,
     locale: PropTypes.object,
     pageHeader: PropTypes.object,
+    modal: PropTypes.object,
     transformCellText: PropTypes.func,
   },
   provide() {
@@ -50,6 +51,7 @@ const ConfigProvider = {
       'autoInsertSpaceInButton',
       'locale',
       'pageHeader',
+      'modal',
       'transformCellText',
     ]),
   },

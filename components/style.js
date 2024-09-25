@@ -23,6 +23,7 @@ import './carousel/style';
 import './notification/style';
 import './message/style';
 import './spin/style';
+import './scrollbar/style';
 import './select/style';
 import './switch/style';
 import './auto-complete/style';

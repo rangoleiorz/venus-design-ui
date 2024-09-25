@@ -10,6 +10,7 @@ function IDialogPropTypes() {
     maskClosable: PropTypes.bool,
     visible: PropTypes.bool,
     destroyOnClose: PropTypes.bool,
+    draggable: PropTypes.bool,
     mousePosition: PropTypes.shape({
       x: PropTypes.number,
       y: PropTypes.number,

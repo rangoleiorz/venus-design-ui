@@ -47,6 +47,7 @@ import { Progress } from './progress';
 import { Radio } from './radio/radio';
 import { Rate } from './rate';
 import { Row } from './grid/row';
+import { Scrollbar } from './scrollbar/scrollbar';
 import { Select } from './select/select';
 import { Skeleton } from './skeleton';
 import { Slider } from './slider';
@@ -122,6 +123,7 @@ export {
   Radio,
   Rate,
   Row,
+  Scrollbar,
   Select,
   Slider,
   Spin,
